@@ -1,0 +1,87 @@
+:root {
+  --primary-color: #425b84;
+  --secondary-color: #5b7bb4;
+  --max-width: 1100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 1rem/1.5 'Arial', sans-serif;
+  background-color: var(--primary-color);
+  color: #fff;
+  /* Cacel horizontal scroll bar */
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+
+#main-header {
+  background-color: var(--secondary-color);
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+#timeline ul {
+  background-color: var(--primary-color);
+  padding: 50px 0;
+}
+
+/* Create Line */
+#timeline ul li {
+  list-style: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background-color: #fff;
+}
+
+/* Bopxes */
+#timeline ul li div {
+  position: relative;
+  background-color: var(--secondary-color);
+  width: 400px;
+  padding: 1rem;
+  bottom: 0px;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Right Side */
+#timeline ul li:nth-child(odd) div {
+  left: 40px;
+}
+
+/* Left Side */
+#timeline ul li:nth-child(even) div {
+  left: -434px;
+}
+
+/* Dots */
+#timeline ul li::after {
+  /* We need content */
+  content: '';
+  position: absolute;
+  background-color: var(--secondary-color);
+  width: 25px;
+  height: 25px;
+  bottom: 0;
+  left: 50%; 
+  /* we want to move it over and make it circle
+  using transform for movign over with translate */
+  transform: translateX(-50%);
+  /* Make it circle */
+  border-radius: 50%;
+}
