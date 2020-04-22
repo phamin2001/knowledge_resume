@@ -78,10 +78,49 @@ h1 {
   width: 25px;
   height: 25px;
   bottom: 0;
-  left: 50%; 
+  left: 50%;
   /* we want to move it over and make it circle
   using transform for movign over with translate */
   transform: translateX(-50%);
   /* Make it circle */
   border-radius: 50%;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Arrow Base */
+/* We need to mess aroung with borders */
+/* Arrow is in div:before */
+#timeline div::before {
+  content: '';
+  /* Position absolute with a div */
+  position: absolute;
+  /* We want arrow little bit up the bottom */
+  bottom: 5px;
+  /* Because arrow comes from border doesn't need 
+  width and height */
+  width: 0;
+  height: 0;
+  /* However a color and width is going to be
+  different depends on coming from left or right */
+  border-style: solid;
+}
+
+/* Right Side Arrows */
+#timeline ul li:nth-child(odd) div::before {
+  /* First we move arrow over */
+  left: -15px;
+  /* using border-width and border-color
+  to point to the line(dot) */
+  border-width: 8px 16px 8px 0;
+  border-color: transparent var(--secondary-color) transparent transparent;
+}
+
+/* Left Side Arrows */
+#timeline ul li:nth-child(even) div::before {
+  /* First we move arrow over */
+  right: -15px;
+  /* using border-width and border-color
+  to point to the line(dot) */
+  border-width: 8px 0 8px 16px ;
+  border-color: transparent transparent transparent var(--secondary-color);
 }
